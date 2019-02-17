@@ -6,17 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
-CSV.foreach('crm_exercise_data.csv') do |row|
-  name = row[0]
-  job_title = row[1]
-  email_address = row[2]
-  phone = row[3]
-  organization = row[4]
-  organization_phone = row[5]
-  domain = row[6]
-  street = row[7]
-  city = row[8]
-  state = row[9]
-  zip = row[10] 
+csv_text = File.read(Rails.root.join('db', 'crm_exercise_data.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+# puts csv
+csv.each do |row|
+
+  name = row['name']
+  job_title = row['job_title']
+  email_address = row['email_address']
+  phone = row['phone']
+  organization = row['organization']
+  organization_phone = row['organization_phone']
+  domain = row['domain']
+  street = row['street']
+  city = row['city']
+  state = row['state']
+  zip = row['zip'] 
 end
 puts "done"
