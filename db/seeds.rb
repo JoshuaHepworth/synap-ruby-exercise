@@ -8,19 +8,25 @@
 require 'csv'
 csv_text = File.read(Rails.root.join('db', 'crm_exercise_data.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-# puts csv
-csv.each do |row|
 
-  name = row['name']
-  job_title = row['job_title']
-  email_address = row['email_address']
-  phone = row['phone']
-  organization = row['organization']
-  organization_phone = row['organization_phone']
-  domain = row['domain']
-  street = row['street']
-  city = row['city']
-  state = row['state']
-  zip = row['zip'] 
+csv.each do |row|
+#   u = User.new
+#     u.name = row['name']
+#     u.job_title = row['job_title']
+#     u.email_address = row['email_address']
+#     u.phone = row['phone']
+#     u.save
+#     puts "#{u.name}, #{u.job_title} saved!"
+# end
+  # o = Organization.new
+  #   o.organization_name = row['organization']
+  #   o.organization_phone = row['organization_phone']
+  #   o.domain = row['domain']
+  #   o.street = row['street']
+  #   o.city = row['city']
+  #   o.state = row['state']
+  #   o.zip = row['zip']
+  #   o.save
+  #   puts "#{o.organization_name}, #{o.city} saved!"
 end
-puts "done"
+# end
