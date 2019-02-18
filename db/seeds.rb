@@ -18,15 +18,14 @@ csv.each do |row|
 #     u.save
 #     puts "#{u.name}, #{u.job_title} saved!"
 # end
-  # o = Organization.new
-  #   o.organization_name = row['organization']
-  #   o.organization_phone = row['organization_phone']
-  #   o.domain = row['domain']
-  #   o.street = row['street']
-  #   o.city = row['city']
-  #   o.state = row['state']
-  #   o.zip = row['zip']
-  #   o.save
-  #   puts "#{o.organization_name}, #{o.city} saved!"
+  o = Organization.new
+    o.organization_name = row['organization']
+    o.organization_phone = row['organization_phone']
+    o.domain = row['domain']
+    o.street = row['street']
+    o.city = row['city']
+    o.state = row['state']
+    o.zip = row['zip']
+    o.save
+    puts "#{o.organization_name}, #{o.city} saved!"
 end
-# end
