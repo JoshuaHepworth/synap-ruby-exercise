@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-has_one :organization	
+belongs_to :organization	
 end

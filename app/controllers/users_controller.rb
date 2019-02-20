@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   def show
     user = User.find(params[:id])
-    organization = Organization.find(params[:id])
+    # organization = Organization.find(params[:id])
     render json: user.as_json(include:[:organization])
     # render json: @user
   end
