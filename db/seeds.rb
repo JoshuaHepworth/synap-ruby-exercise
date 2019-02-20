@@ -11,6 +11,7 @@ csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 #imports csv seed file
 #loops through the rows
 csv.each do |row|
+
   o = Organization.new
     o.organization_name = row['organization']
     o.organization_phone = row['organization_phone']
@@ -18,8 +19,10 @@ csv.each do |row|
     o.domain = row['domain']
     # address = Address.find_by(street: row['street'])
     # o.address_id = address.id
+    # o.people_count = organization.users.all.count
     o.save
     puts "#{o.organization_name} organization saved!"
+
     
   u = User.new
     u.name = row['name']
@@ -27,6 +30,9 @@ csv.each do |row|
     u.email_address = row['email_address']
     u.phone = row['phone']
     organization = Organization.find_by(organization_name: row['organization'])
+    
+    binding.pry
+
     u.organization_id = organization.id
     u.save
     puts "#{u.name}, #{u.job_title} user saved!"

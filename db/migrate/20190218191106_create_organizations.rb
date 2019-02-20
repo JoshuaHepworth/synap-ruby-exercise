@@ -6,7 +6,7 @@ class CreateOrganizations < ActiveRecord::Migration[5.2]
       t.string :organization_phone
       t.string :domain
       # t.references :address, index: true, foreign_key: true
-      t.references :user, index: true, foreign_key: true
+      t.references :organization, :user, index: true, foreign_key: true
       t.timestamps
     end
   end

@@ -13,8 +13,7 @@ class OrganizationsController < ApplicationController
   def show
     address = Address.find(params[:id])
     organization = Organization.find(params[:id])
-    render json: organization.as_json(include:[:address])
-    
+    render json: organization.as_json(include:[:address])    
   end
 
   # POST /organizations
