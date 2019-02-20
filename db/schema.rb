@@ -10,18 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_18_191106) do
+ActiveRecord::Schema.define(version: 2019_02_18_223606) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.integer "organization_id"
+    # t.datetime "created_at", null: false
+    # t.datetime "updated_at", null: false
+    # t.index [nil], name: "index_addresses_on_organization_id"
+  end
 
   create_table "organizations", force: :cascade do |t|
     t.string "organization_name"
     t.string "organization_phone"
     t.string "domain"
-    t.string "street"
-    t.string "city"
-    t.string "state"
-    t.string "zip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "address_id" 
+    # t.datetime "created_at", null: false
+    # t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -29,8 +37,16 @@ ActiveRecord::Schema.define(version: 2019_02_18_191106) do
     t.string "job_title"
     t.string "email_address"
     t.string "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "organization_id"
+    # t.integer "address_id"
+    # t.datetime "created_at", null: false
+    # t.datetime "updated_at", null: false
   end
+  add_index "addresses", ["organization_id"], name: "index_addresses_on_organization_id", using: :btree
+  add_index "organizations", ["address_id"], name: "index_organizations_on_address_id", using: :btree
+  add_index "users", ["organization_id"], name: "index_users_on_organization_id", using: :btree
 
+  add_foreign_key "addresses", "organizations"
+  add_foreign_key "users", "organizations"
+  add_foreign_key "organizations", "addresses"
 end

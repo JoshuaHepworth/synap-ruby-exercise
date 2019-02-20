@@ -6,11 +6,15 @@ class OrganizationsController < ApplicationController
     @organizations = Organization.all
 
     render json: @organizations
+    
   end
 
   # GET /organizations/1
   def show
-    render json: @organization
+    address = Address.find(params[:id])
+    organization = Organization.find(params[:id])
+    render json: organization.as_json(include:[:address])
+    
   end
 
   # POST /organizations

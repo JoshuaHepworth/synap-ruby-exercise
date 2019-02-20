@@ -8,24 +8,41 @@
 require 'csv'
 csv_text = File.read(Rails.root.join('db', 'crm_exercise_data.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-
+#imports csv seed file
+#loops through the rows
 csv.each do |row|
-#   u = User.new
-#     u.name = row['name']
-#     u.job_title = row['job_title']
-#     u.email_address = row['email_address']
-#     u.phone = row['phone']
-#     u.save
-#     puts "#{u.name}, #{u.job_title} saved!"
-# end
   o = Organization.new
     o.organization_name = row['organization']
     o.organization_phone = row['organization_phone']
+    # o.people_count = row['name']
     o.domain = row['domain']
-    o.street = row['street']
-    o.city = row['city']
-    o.state = row['state']
-    o.zip = row['zip']
+    # address = Address.find_by(street: row['street'])
+    # o.address_id = address.id
     o.save
-    puts "#{o.organization_name}, #{o.city} saved!"
+    puts "#{o.organization_name} organization saved!"
+    
+  u = User.new
+    u.name = row['name']
+    u.job_title = row['job_title']
+    u.email_address = row['email_address']
+    u.phone = row['phone']
+    organization = Organization.find_by(organization_name: row['organization'])
+    u.organization_id = organization.id
+    u.save
+    puts "#{u.name}, #{u.job_title} user saved!"
+
+
+    a = Address.new
+    a.street = row['street']
+    a.city = row['city']
+    a.state = row['state']
+    a.zip = row['zip']
+    organization = Organization.find_by(organization_name: row['organization'])
+    a.organization_id = organization.id
+    # puts "#{org}, THIS IS THE ORGANIZATION NAME"
+    a.save
+    puts "#{a.street} address saved!"
+    
 end
+# end
+  # end

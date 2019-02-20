@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  resources :organizations
+  resources :organizations 
+  resources :addresses
   resources :users
 end
