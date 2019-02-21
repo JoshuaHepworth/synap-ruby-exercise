@@ -34,14 +34,18 @@ csv.each do |row|
 
     a = Address.new
     a.street = row['street']
-    a.city = row['city']
-    a.state = row['state']
-    a.zip = row['zip']
-    organization = Organization.find_by(organization_name: row['organization'])
-    a.organization_id = organization.id
-    # puts "#{org}, THIS IS THE ORGANIZATION NAME"
-    a.save
-    puts "#{a.street} address saved!"
+
+    if a.street != Address.where(street: a.street) 
+        a.city = row['city']
+        a.state = row['state']
+        a.zip = row['zip']
+        organization = Organization.find_by(organization_name: row['organization'])
+        a.organization_id = organization.id
+        # puts "#{org}, THIS IS THE ORGANIZATION NAME"
+        a.save
+        puts "#{a.street} address saved!"  
+    end
+
     
 end
 # end

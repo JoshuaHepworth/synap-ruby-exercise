@@ -1,4 +1,4 @@
 class Organization < ApplicationRecord
-	belongs_to :address
+	has_one :address
 	has_many :users
 end
