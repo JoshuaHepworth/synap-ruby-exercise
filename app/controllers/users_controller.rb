@@ -4,8 +4,12 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
+    address = Address.all
+    organization = Organization.all
+
     
-    render json: @users
+    render :json => @users.as_json(:include => {:organization => {:include => :address}})
+    # render json: @users
   end
 
   # GET /users/1
