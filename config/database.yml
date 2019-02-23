@@ -57,7 +57,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: synap-ruby-exercise_production
-  pool: 5
-  username: joshhepworth
-  password:
+  database: postgresql-horizontal-13114
+  url: https://arcane-springs-37895.herokuapp.com/
+
+
