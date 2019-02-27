@@ -1,7 +1,7 @@
 # README
 
 ## Heroku link
-(https://arcane-springs-37895.herokuapp.com/)
+(https://arcane-springs-37895.herokuapp.com/users/1)
 
 
 ## Instructions for routes
