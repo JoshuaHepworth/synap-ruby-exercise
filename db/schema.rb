@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_02_18_223606) do
     t.index ["organization_id"], name: "index_users_on_organization_id"
   end
 
-  add_foreign_key "addresses", "organizations"
-  add_foreign_key "organizations", "addresses"
-  add_foreign_key "users", "organizations"
+  # add_foreign_key "addresses", "organizations"
+  # add_foreign_key "organizations", "addresses"
+  # add_foreign_key "users", "organizations"
 end
