@@ -1,5 +1,9 @@
 # README
 
+## Heroku link
+(https://arcane-springs-37895.herokuapp.com/)
+
+
 ## Instructions for routes
 
 - /users
@@ -7,7 +11,7 @@
 - /organizations
 - /organizations/1
 
-## I used "Users" instead of "People" for easier pluralization
+## I used "Users" instead of "People" for easier pluralization.
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
