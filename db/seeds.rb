@@ -16,8 +16,8 @@ csv.each do |row|
     o.organization_phone = row['organization_phone']
     # o.people_count = row['name']
     o.domain = row['domain']
-    # address = Address.find_by(street: row['street'])
-    # o.address_id = address.id
+    address = Address.find_by(street: row['street'])
+    o.address_id = address.id
     o.save
     puts "#{o.organization_name} organization saved!"
     
@@ -27,7 +27,7 @@ csv.each do |row|
     u.email_address = row['email_address']
     u.phone = row['phone']
     organization = Organization.find_by(organization_name: row['organization'])
-    # u.organization_id = organization.id
+    u.organization_id = organization.id
     u.save
     puts "#{u.name}, #{u.job_title} user saved!"
 
@@ -40,7 +40,7 @@ csv.each do |row|
         a.state = row['state']
         a.zip = row['zip']
         organization = Organization.find_by(organization_name: row['organization'])
-        # a.organization_id = organization.id
+        a.organization_id = organization.id
         # puts "#{org}, THIS IS THE ORGANIZATION NAME"
         a.save
         puts "#{a.street} address saved!"  
