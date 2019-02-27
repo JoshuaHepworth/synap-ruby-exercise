@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_02_18_223606) do
     t.string "organization_name"
     t.string "organization_phone"
     t.string "domain"
+    t.integer "people_count"
     t.integer "address_id"
     # t.index ["address_id"], name: "index_organizations_on_address_id"
   end

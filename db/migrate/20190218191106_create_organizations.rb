@@ -4,6 +4,7 @@ class CreateOrganizations < ActiveRecord::Migration[5.2]
       t.string :organization_name
       t.string :organization_phone
       t.string :domain
+      t.integer :people_count
       t.references :address, index: true
       t.references :user, index: true
       # t.timestamps
