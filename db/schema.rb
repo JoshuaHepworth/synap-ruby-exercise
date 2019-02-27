@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_02_18_223606) do
     t.string "state"
     t.string "zip"
     t.integer "organization_id"
-    t.index ["organization_id"], name: "index_addresses_on_organization_id"
+    # t.index ["organization_id"], name: "index_addresses_on_organization_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_02_18_223606) do
     t.string "organization_phone"
     t.string "domain"
     t.integer "address_id"
-    t.index ["address_id"], name: "index_organizations_on_address_id"
+    # t.index ["address_id"], name: "index_organizations_on_address_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 2019_02_18_223606) do
     t.string "email_address"
     t.string "phone"
     t.integer "organization_id"
-    t.index ["organization_id"], name: "index_users_on_organization_id"
+    # t.index ["organization_id"], name: "index_users_on_organization_id"
   end
 
-  # add_foreign_key "addresses", "organizations"
-  # add_foreign_key "organizations", "addresses"
-  # add_foreign_key "users", "organizations"
+  add_foreign_key "addresses", "organizations"
+  add_foreign_key "organizations", "addresses"
+  add_foreign_key "users", "organizations"
 end
