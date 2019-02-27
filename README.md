@@ -1,5 +1,14 @@
 # README
 
+## Instructions for routes
+
+- /users
+- /users/1
+- /organizations
+- /organizations/1
+
+## I used "Users" instead of "People" for easier pluralization
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
