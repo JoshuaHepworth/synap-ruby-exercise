@@ -8,8 +8,8 @@ class UsersController < ApplicationController
     organization = Organization.all
 
     
-    # render :json => @users.as_json(:include => {:organization => {:include => :address}})
-    render json: @users
+    render :json => @users.as_json(:include => {:organization => {:include => :address}})
+    # render json: @users
   end
 
   # GET /users/1
