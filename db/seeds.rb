@@ -39,8 +39,8 @@ csv.each do |row|
         a.city = row['city']
         a.state = row['state']
         a.zip = row['zip']
-        organization = Organization.find_by(organization_name: row['organization'])
-        a.organization_id = organization.id
+        # organization = Organization.find_by(organization_name: row['organization'])
+        # a.organization_id = organization.id
         # puts "#{org}, THIS IS THE ORGANIZATION NAME"
         a.save
         puts "#{a.street} address saved!"  
