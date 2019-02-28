@@ -7,9 +7,6 @@ class CreateOrganizations < ActiveRecord::Migration[5.2]
       t.integer :people_count
       t.references :address, index: true
       t.references :user, index: true
-      # t.timestamps
     end
-    # add_foreign_key :address, :organizations, column: :address_id
-    # add_foreign_key :user, :organizations, column: :user_id 
   end
 end

@@ -7,9 +7,6 @@ class CreateAddresses < ActiveRecord::Migration[5.2]
       t.string :zip
       t.references :organization, index: true, foreign_key: true 
       t.references :user, index: true, foreign_key: true
-      # t.timestamps
     end
-    # add_foreign_key :organization, :addresses, column: :organization_id 
-    # add_foreign_key :user, :addresses, column: :user_id 
   end
 end

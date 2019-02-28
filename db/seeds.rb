@@ -14,10 +14,7 @@ csv.each do |row|
   o = Organization.new
     o.organization_name = row['organization']
     o.organization_phone = row['organization_phone']
-    # o.people_count = row['name']
     o.domain = row['domain']
-    # address = Address.find_by(street: row['street'])
-    # o.address_id = address.id
     o.save
     puts "#{o.organization_name} organization saved!"
     
@@ -41,7 +38,6 @@ csv.each do |row|
         a.zip = row['zip']
         organization = Organization.find_by(organization_name: row['organization'])
         a.organization_id = organization.id
-        # puts "#{org}, THIS IS THE ORGANIZATION NAME"
         a.save
         puts "#{a.street} address saved!"  
     end
